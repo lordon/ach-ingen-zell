@@ -5,7 +5,7 @@ module.exports = {
   context: __dirname + "/src",
   entry: "./jsx/main.jsx",
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, 'docs'),
     filename: 'js/app.js'
   },
   resolve: {
