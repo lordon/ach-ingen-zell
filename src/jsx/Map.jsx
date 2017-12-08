@@ -2,7 +2,7 @@ import React from 'react';
 import d3_scale from 'd3-scale';
 const colorScale = d3_scale.viridis();
 
-export default class Map extends React.Component {
+export class Map extends React.Component {
   render() {
 
     // percentage of suffix ocurring in each bin
@@ -29,7 +29,7 @@ export default class Map extends React.Component {
 
       placenames[x.id] = `${percentages[x.id].toFixed(3)}% of place names have suffix \'${this.props.suffix[0]}\' or variations: ${hits.map((y)=> y.label).filter(function(value, index, self) {return self.indexOf(value) === index;}).join(", ")}`;
       // count only bins with at least 20 villages or towns for color scale maximum
-      if(x.length>20) {
+      if(x.length>2) {
         maxPercent = Math.max(maxPercent, percentages[x.id]);
       }
     });
@@ -57,7 +57,7 @@ export default class Map extends React.Component {
         <h2>-{mainLabel}</h2>
         <h4>{variations}</h4>
         <h3>{totalCount} places</h3>
-        <svg width="200" height="300">
+        <svg width="400" height="350">
       		{dots}
       	</svg>
        </div>
